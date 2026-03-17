@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>Buscar Post</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for post in posts %}
+        <li>{{ post.titulo }} - {{ post.autor }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
